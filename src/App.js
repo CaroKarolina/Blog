@@ -10,25 +10,21 @@ import Post from './components/features/Post';
 
 const App = () => {
   return (
-    <main>
-      <Container>
-        <Header />
+    <Container>
+      <Header />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/postAdd" element={<PostAdd />} />
           <Route path="/postEdit" element={<PostEdit />} />
           <Route path="*" element={
-            <main style={{ padding: "1rem" }}>
               <p>There's nothing here!</p>
-            </main>
             }
           />
           <Route path="/post/:postId" element={<Post />} />
         </Routes>
         <Footer />
-      </Container>
-    </main>
+    </Container>
   );
 };
 

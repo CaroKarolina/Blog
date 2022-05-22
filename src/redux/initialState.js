@@ -14,7 +14,7 @@ const initialState = {
         shortDescription: 'Short description of the article...',
         content: 'Main content of the article',
         publishedDate: '02-02-2022',
-        author: 'John Doe'
+        author: 'John John'
       },
       {
         id: '3',
@@ -22,7 +22,7 @@ const initialState = {
         shortDescription: 'Short description of the article...',
         content: 'Main content of the article',
         publishedDate: '02-02-2022',
-        author: 'John Doe'
+        author: 'Doe Doe'
       }
     ],
 }
