@@ -4,8 +4,8 @@ import Home from './components/pages/Home';
 import About from './components/pages/About';
 import PostAdd from './components/pages/PostAdd';
 import PostEdit from './components/pages/PostEdit';
-import Header from './components/views/Header';
-import Footer from './components/views/Footer';
+import Header from './components/common/Header';
+import Footer from './components/common/Footer';
 import Post from './components/features/Post';
 
 const App = () => {
@@ -16,12 +16,12 @@ const App = () => {
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/postAdd" element={<PostAdd />} />
-          <Route path="/postEdit" element={<PostEdit />} />
+          <Route path="/post/edit/:postId" element={<PostEdit />} />
+          <Route path="/post/:postId" element={<Post />} />
           <Route path="*" element={
               <p>There's nothing here!</p>
             }
           />
-          <Route path="/post/:postId" element={<Post />} />
         </Routes>
         <Footer />
     </Container>

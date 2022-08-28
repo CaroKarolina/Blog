@@ -1,21 +1,29 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { getAllPosts } from '../../redux/store';
 import { Button, Row, Col, Container, } from "react-bootstrap";
-import { useParams } from "react-router-dom";
+import { Navigate, useParams } from "react-router-dom";
 import { Link } from 'react-router-dom';
 import Delete from "./Delete";
 import { useState } from "react";
+import { removePost } from "../../redux/postsRedux";
 
 const Post = () => {
 
     const [deletePost, setDeletePost] = useState(false)
+
+    const dispatch = useDispatch();
 
     const params = useParams()
 
     const post = useSelector(getAllPosts)
     .find(post => post.id === params.postId)
 
-	return (        
+    const handleDeleteAtion = () => {
+        dispatch(removePost(params.postId));
+        setDeletePost(false);
+    }
+
+	return post? (
         <Container>
             <Row>
                 <Col md='4'><h2>{post.title}</h2></Col>
@@ -32,12 +40,13 @@ const Post = () => {
             </Row>
             <Row>
                 <div>Author: {post.author}</div>
-                <div>Published: {post.publishedDate}</div> 
+                <div>Published: {post.publishedDate}</div>
                 <div>{post.content}</div>
             </Row>
-            {deletePost && <Delete closeModal={setDeletePost}/>}
+            {deletePost && <Delete closeModal={setDeletePost} onRemove={handleDeleteAtion}/>}
         </Container>
-    );
+    ) : <Navigate to="/"/>
+    ;
 };
 
 export default Post;

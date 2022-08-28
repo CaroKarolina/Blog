@@ -3,9 +3,10 @@ import { NavLink } from "react-router-dom";
 
 const NavBar = () => {
     return (
-        <Navbar bg="primary" variant="dark" expand='lg'>
+        <Navbar bg="primary" variant="dark" expand="lg" className="mt-4 mb-4 rounded">
+        {/* <Navbar bg="primary" variant="dark" expand='lg'> */}
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Brand as={NavLink} to="/">Blog-app</Navbar.Brand>           
+        <Navbar.Brand as={NavLink} to="/">Blog-app</Navbar.Brand>
             <Navbar.Collapse id="basic-navbar-nav">
                 <Nav>
                     <Nav.Link as={NavLink} to="/">Home</ Nav.Link>

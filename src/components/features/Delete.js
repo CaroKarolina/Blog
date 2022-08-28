@@ -1,7 +1,7 @@
 import { Container, Modal, Button } from "react-bootstrap";
 
-const Delete = ( {closeModal} ) => {
-  
+const Delete = ( {closeModal, onRemove} ) => {
+
    return (
     <Container>
       <Modal.Dialog>
@@ -13,7 +13,7 @@ const Delete = ( {closeModal} ) => {
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={() => closeModal(false)}>Cancel</Button>
-          <Button variant="danger">Remove</Button>
+          <Button variant="danger" onClick={onRemove}>Remove</Button>
         </Modal.Footer>
       </Modal.Dialog>
     </Container>
