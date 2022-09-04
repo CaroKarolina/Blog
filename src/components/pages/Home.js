@@ -1,35 +1,21 @@
-import { useSelector } from 'react-redux';
-import { getAllPosts } from '../../redux/store';
-import { Card, Button, Container, Row, Col } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Button, Container, Row, Col } from 'react-bootstrap';
+import useFetch from '../../useFetch';
+import BlogList from './BlogList';
 
 const Home = () => {
-
-    const posts = useSelector(getAllPosts);
+    const url = 'http://localhost:3000/blogs';
+    const { data: blogs, isPanding, error } = useFetch(url); // zapis data: blogs oznacza przypisanie nowej nazwy (blogs) do właściwości data zaimportowanej w komponencie
 
     return (
         <Container>
             <Row>
-                <Col>All posts</Col>
-                <Col md='auto'><Button href="/postAdd">Add post</Button></Col>
+                <Col><h1>All posts</h1></Col>
+                <Col md='auto'><Button href="/adding">Add post</Button></Col>
             </Row>
-            <Row md={2} lg={3}>
-                {posts.map(post => (
-                    <Col>
-                        <Card key={post.id}>
-                            <Card.Body>
-                                <h3>{post.title}</h3>
-                                <h4>{post.author}</h4>
-                                <h4>{post.publishedDate}</h4>
-                                <Card.Text>{post.shortDescription}</Card.Text>
-                                <Link to={'/post/' + post.id}>
-                                    <Button>Read more</Button>
-                                </Link>
-                            </Card.Body>
-                        </Card>
-                    </Col>
-                ))}
-            </Row>
+            {/* wstawienie warunku === true powoduje, że funckja wykonuje się */}
+            { error && <div>{ error }</div>}
+            { isPanding && <div>Loading...</div> }
+            {blogs && <BlogList blogs={ blogs } />}
         </Container>
     )
 };

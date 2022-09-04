@@ -1,0 +1,36 @@
+{
+  "blogs": [
+    {
+      "title": "a",
+      "author": "john doe",
+      "shorterForm": "gasa",
+      "content": "jokakla",
+      "publishedDate": "2022-09-11",
+      "id": "UpofxIZ"
+    },
+    {
+      "title": "aaa",
+      "author": "john doe",
+      "shorterForm": "aaaa",
+      "content": "aaaaaaa",
+      "publishedDate": "2022-09-11",
+      "id": "JbItD6G"
+    },
+    {
+      "title": "aaa",
+      "author": "john doe",
+      "shorterForm": "aaaa",
+      "content": "aaaaaa",
+      "publishedDate": "2022-09-11",
+      "id": "E5k1hZO"
+    },
+    {
+      "title": "aaa",
+      "author": "john doe",
+      "shorterForm": "gbg",
+      "content": "igyff",
+      "publishedDate": "2022-09-05",
+      "id": "PwGZtvU"
+    }
+  ]
+}

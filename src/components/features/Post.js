@@ -6,45 +6,39 @@ import { Link } from 'react-router-dom';
 import Delete from "./Delete";
 import { useState } from "react";
 import { removePost } from "../../redux/postsRedux";
+import useFetch from "../../useFetch";
 
 const Post = () => {
 
     const [deletePost, setDeletePost] = useState(false)
-
     const dispatch = useDispatch();
 
-    const params = useParams()
-
+    // const params = useParams()
+    const { id } = useParams();
     const post = useSelector(getAllPosts)
-    .find(post => post.id === params.postId)
+    // .find(post => post.id === params.postId)
+    .find(post => post.id)
 
-    const handleDeleteAtion = () => {
-        dispatch(removePost(params.postId));
+    const handleDeleteAction = () => {
+        dispatch(removePost(post.id));
         setDeletePost(false);
     }
 
+    // const url = 'http://localhost:3000/blogs';
+    // const { data, isPanding, error } = useFetch(`${url}/${id}`);
+
 	return post? (
-        <Container>
-            <Row>
-                <Col md='4'><h2>{post.title}</h2></Col>
-                <Col md='2'>
-                    <Link to={'/post/edit/' + post.id}>
-                        <Button variant="outline-primary">Edit</Button>
-                    </Link>
-                </Col>
-                <Col md='2'>
-                    <Link to={'/post/' + post.id}>
-                        <Button variant="outline-danger" onClick={() => setDeletePost(true)}>Delete</Button>
-                    </Link>
-                </Col>
-            </Row>
-            <Row>
-                <div>Author: {post.author}</div>
-                <div>Published: {post.publishedDate}</div>
-                <div>{post.content}</div>
-            </Row>
-            {deletePost && <Delete closeModal={setDeletePost} onRemove={handleDeleteAtion}/>}
-        </Container>
+        <h2>Hello. world</h2>
+                //     <Link to={'/post/' + post.id}>
+                //         <Button variant="outline-danger" onClick={() => setDeletePost(true)}>Delete</Button>
+                //     </Link>
+        //     <Row>
+                // <p>Autor: { post.author }</p>
+                // <p>Published: { post.publishedDate }</p>
+                // <div>{ post.content }</div>
+        //     </Row>
+            // {deletePost && <Delete closeModal={setDeletePost} onRemove={handleDeleteAction}/>}
+        // </Container>
     ) : <Navigate to="/"/>
     ;
 };
